@@ -6,9 +6,10 @@
     <!-- Filter the Products   -->
     <div class='panel-body'>
         <div class='row'>
+            <div class='col-md-6'></div>
             <div class='col-md-2'>Filter by:</div>
             <div class='col-md-4'>
-                <input type='text' [(ngModel)]='listFilter' />
+                <input type='text' placeholder="Enter the product name" [(ngModel)]='listFilter' />
             </div>
         </div>
         <div class='row' *ngIf='listFilter'>
