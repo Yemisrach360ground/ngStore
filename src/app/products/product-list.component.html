@@ -20,13 +20,11 @@
         <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
 
         <div class='table-responsive'>
-            <table class='table'
-                   *ngIf='products && products.length'>
+            <table class='table' *ngIf='products && products.length'>
                 <thead>
                     <tr>
                         <th>
-                            <button class='btn btn-primary'
-                                (click)='toggleImage()'>
+                            <button class='btn btn-primary' (click)='toggleImage()'>
                                 {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
                         </th>
@@ -40,11 +38,7 @@
                 <tbody>
                     <tr *ngFor='let product of products | productFilter:listFilter'>
                         <td>
-                            <img *ngIf='showImage'
-                                 [src]='product.imageUrl'
-                                 [title]='product.productName | uppercase'
-                                 [style.width.px]='imageWidth' 
-                                 [style.margin.px]='imageMargin'>
+                            <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName | uppercase' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                         </td>
                         <td><a [routerLink]="['/product', product.productId]">
                             {{product.productName}}
@@ -54,10 +48,9 @@
                         <td>{{ product.releaseDate }}</td>
                         <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>
                         <td>
-                            <ai-star [rating]='product.starRating'
-                                    (ratingClicked)='onRatingClicked($event)'>
+                            <ai-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'>
                             </ai-star>
-                       </td>
+                        </td>
                     </tr>
                 </tbody>
             </table>
