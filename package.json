@@ -1,8 +1,8 @@
 {
-    "name": "product-management",
+    "name": "store-management",
     "version": "1.1.0",
-    "author": "Deborah Kurata",
-    "description": "Package for the Acme Product Management sample application",
+    "author": "Some one",
+    "description": "a simple store app",
     "scripts": {
         "build": "tsc -p src/",
         "build:watch": "tsc -p src/ -w",
