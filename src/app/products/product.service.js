@@ -15,13 +15,19 @@ require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/observable/throw");
+//import { IProduct } from './product';
 var ProductService = (function () {
-    function ProductService(_http) {
-        this._http = _http;
-        this._productUrl = 'api/products/products.json';
+    function ProductService(http) {
+        this.http = http;
+        this.productUrl = 'http://localhost:8080/item';
     }
     ProductService.prototype.getProducts = function () {
-        return this._http.get(this._productUrl)
+        var headers = new http_1.Headers();
+        // headers.append('Content-Type', 'application/json');
+        // //headers.append('Access-Control-Allow-Headers', 'Content-Type');
+        // headers.append('Access-Control-Allow-Methods', 'GET');
+        // headers.append('Access-Control-Allow-Origin', '*');
+        return this.http.get(this.productUrl, { headers: headers })
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
             .catch(this.handleError);
